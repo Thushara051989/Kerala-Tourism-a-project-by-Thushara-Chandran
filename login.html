@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body background = "alappuzha.jpg">
+    <!-- Navbar begins -->
+    
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand " href="#">
+        <img src="/logo.jpg" alt="" width="80" height="60">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-busy="page"  style="font-size:20px ; font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif;" href="#">Welcome to God's Own country             </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="font-family: Georgia, 'Times New Roman', Times, serif; float: inline-end; margin-left: 50px; font-size: 20px; background-color:peachpuff;"  href="index.html">    Home <br></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="font-family: Georgia, 'Times New Roman', Times, serif; float: inline-end; font-size: 20px;margin-left: 45px; background-color: peachpuff; "  href="login.html" target="_blank">    Login     <br0></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="font-family: Georgia, 'Times New Roman', Times, serif; float: inline-end; font-size: 20px;margin-left: 45px; background-color: peachpuff; "  href="signup.html" target="_blank">    Sign Up     <br0></a>
+          </li>
+         
+        
+        <form class="d-flex">
+          <input class="form-control me-2" style="margin-left: 200px;" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" style="text-align-last: right;" type="submit">Search</button>
+          
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar ends -->
+    <div id="login" >
+        <br>
+        <!-- <h3 class="text-center text-black pt-5">Login form</h3> -->
+        <br>
+        <br>
+        <div class="container" style="border: 1px solid black; background-color: moccasin;">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div class="login-box col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a href="signup.html" target="_blank" class="text-info" style="font-weight: bold;">Sign Up here</a>
+                                <br>
+                                <br>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+  <footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        All rights reserved © Kerala Tourism 2022:
+      <a class="text-dark" href="#">Copyright</a>
+      <a class="text-dark" href="#" style="margin-left: 10px;">    Contact Us</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>
+</html>
