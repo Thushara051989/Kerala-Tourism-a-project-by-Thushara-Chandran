@@ -8,6 +8,51 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	function validatePassword(pwd3) {
+		
+		// Do not show anything when the length of password is zero.
+		if (pwd3.length === 0) {
+			document.getElementById("msg").innerHTML = "";
+			return;
+		}
+		// Create an array and push all possible values that you want in password
+		var matchedCase = new Array();
+		matchedCase.push("[0-9]"); // Special characters
+		matchedCase.push("[A-Z]");      // Uppercase Alpabates
+		matchedCase.push("[0-9]");      // Numbers
+		matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+		// Check the conditions
+		var ctr = 0;
+		for (var i = 0; i < matchedCase.length; i++) {
+			if (new RegExp(matchedCase[i]).test(pwd3)) {
+				ctr++;
+			}
+		}
+		// Display it
+		var color = "";
+		var strength = "";
+		switch (ctr) {
+			case 0:
+			case 1:
+			case 2:
+				strength = "Poor-Min 8 chara,1 UpCase,1 Lowcase & 1 num ";
+				color = "red";
+				break;
+			case 3:
+				strength = "Medium";
+				color = "orange";
+				break;
+			case 4:
+				strength = "Strong";
+				color = "green";
+				break;
+		}
+		document.getElementById("msg").innerHTML = strength;
+		document.getElementById("msg").style.color = color;
+	}
+</script>
 </head>
 <body background = "alappuzha.jpg">
     <!-- Navbar begins -->
@@ -32,7 +77,7 @@
             <a class="nav-link active" style="font-family: Georgia, 'Times New Roman', Times, serif; float: inline-end; font-size: 20px;margin-left: 45px; background-color: peachpuff; "  href="login.html" target="_blank">    Login     <br0></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" style="font-family: Georgia, 'Times New Roman', Times, serif; float: inline-end; font-size: 20px;margin-left: 45px; background-color: peachpuff; "  href="signup.html" target="_blank">    Sign Up     <br0></a>
+            <a class="nav-link active" style="font-family: Georgia, 'Times New Roman', Times, serif; float: inline-end; font-size: 20px;margin-left: 45px; background-color: peachpuff; "  href="signin.html" target="_blank">    Sign Up     <br0></a>
           </li>
          
         
@@ -54,22 +99,24 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div class="login-box col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
+                        <form id="login-form" class="form" action="new.html" onsubmit=" return loginvalidate()">
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
-                                <label for="username" class="text-info">Username:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <label for="email" class="text-info">Email ID:</label><br>
+                                <input type="email" name="email" placeholder="Enter Email ID here" required="required" id="emailid" class="form-control">
                             </div>
+                            <label for="error" id="errormail"></label>
                             <div class="form-group">
                                 <label for="password" class="text-info">Password:</label><br>
-                                <input type="password" name="password" id="password" class="form-control">
-                            </div>
+                                <input type="password" name="password" placeholder="Enter password here" required="required" id="pwd3" class="form-control"  onkeyup="validatePassword(this.value);"/><span id="msg"></span>
+			                            </div>
+                                  <label for="error" id="errorpass"></label>
                             <div class="form-group">
                                 <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="signup.html" target="_blank" class="text-info" style="font-weight: bold;">Sign Up here</a>
+                                <a href="signin.html" target="_blank" class="text-info" style="font-weight: bold;">Sign Up here</a>
                                 <br>
                                 <br>
                             </div>
@@ -79,10 +126,11 @@
             </div>
         </div>
     </div>
+    <script src="check.js"></script>
     <!-- footer -->
-  <footer class="bg-light text-center text-lg-start">
+  <footer class="bg-light text-center text-lg-start" style="margin-top:100px;">
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); margin-bottom: -10px;">
         All rights reserved © Kerala Tourism 2022:
       <a class="text-dark" href="#">Copyright</a>
       <a class="text-dark" href="#" style="margin-left: 10px;">    Contact Us</a>

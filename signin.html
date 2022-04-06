@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<title>Sign Up Form</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <script src="form.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  -->
+<!-- <link href= "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+<!-- password validation -->
+<script>
+	function validatePassword(pwd1) {
+		
+		// Do not show anything when the length of password is zero.
+		if (pwd1.length === 0) {
+			document.getElementById("msg").innerHTML = "";
+			return;
+		}
+		// Create an array and push all possible values that you want in password
+		var matchedCase = new Array();
+		matchedCase.push("[0-9]"); // Special characters
+		matchedCase.push("[A-Z]");      // Uppercase Alpabates
+		matchedCase.push("[0-9]");      // Numbers
+		matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+		// Check the conditions
+		var ctr = 0;
+		for (var i = 0; i < matchedCase.length; i++) {
+			if (new RegExp(matchedCase[i]).test(pwd1)) {
+				ctr++;
+			}
+		}
+		// Display it
+		var color = "";
+		var strength = "";
+		switch (ctr) {
+			case 0:
+			case 1:
+			case 2:
+				strength = "Poor- Min 8 chara,1 UpCase,1 Lowcase & 1 num ";
+				color = "red";
+				break;
+			case 3:
+				strength = "Medium";
+				color = "orange";
+				break;
+			case 4:
+				strength = "Strong";
+				color = "green";
+				break;
+		}
+		document.getElementById("msg").innerHTML = strength;
+		document.getElementById("msg").style.color = color;
+	}
+</script>
+</head>
+<body>
+	
+    <!-- /* Navbar begins */ -->
+    
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand " href="">
+          <img src="logo.jpg" alt="" width="80" height="42" style="margin-top: -15px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-busy="page"  style="font-size:20px ; font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif;" href="">Welcome to God's Own country             </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" style="font-family: Georgia, 'Times New Roman', Times, serif; float: inline-end; margin-left: 50px; font-size: 20px; background-color:peachpuff;"  href="index.html">    Home <br></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" style="font-family: Georgia, 'Times New Roman', Times, serif; float: inline-end; font-size: 20px;margin-left: 45px; background-color: peachpuff; "  href="login.html" target="_blank">    Login     <br0></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" style="font-family: Georgia, 'Times New Roman', Times, serif; float: inline-end; font-size: 20px;margin-left: 45px; background-color: peachpuff; "  href="signin.html" target="_blank">    Sign Up     <br0></a>
+            </li>
+           
+          
+          <form class="d-flex">
+            <input class="form-control me-2" style="margin-left: 200px; margin-top: 10px;"  type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" style="text-align-last: right; margin-top: 5px;" type="submit">Search</button>
+            
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar ends -->
+    <style>
+        body {
+		color: #fff;
+		background: #19aa8d;
+		font-family: 'Roboto', sans-serif;
+	}
+	.form-control, .form-control:focus, .input-group-addon {
+		border-color: #e1e1e1;
+	}
+    .form-control, .btn {        
+        border-radius: 3px;
+    }
+	.signup-form {
+		width: 390px;
+		margin: 0 auto;
+		padding: 30px 0;
+	}
+    .signup-form form {
+		color: #999;
+		border-radius: 3px;
+    	margin-bottom: 15px;
+        background: #fff;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+	.signup-form h2 {
+		color: #333;
+		font-weight: bold;
+        margin-top: 0;
+    }
+    .signup-form hr {
+        margin: 0 -30px 20px;
+    }
+	.signup-form .form-group {
+		margin-bottom: 20px;
+	}
+	.signup-form label {
+		font-weight: normal;
+		font-size: 13px;
+	}
+	.signup-form .form-control {
+		min-height: 38px;
+		box-shadow: none !important;
+	}	
+	.signup-form .input-group-addon {
+		max-width: 42px;
+		text-align: center;
+	}
+	.signup-form input[type="checkbox"] {
+		margin-top: 2px;
+	}   
+    .signup-form .btn{        
+        font-size: 16px;
+        font-weight: bold;
+		background: #19aa8d;
+		border: none;
+		min-width: 140px;
+    }
+	.signup-form .btn:hover, .signup-form .btn:focus {
+		background: #179b81;
+        outline: none;
+	}
+	.signup-form a {
+		color: #fff;	
+		text-decoration: underline;
+	}
+	.signup-form a:hover {
+		text-decoration: none;
+	}
+	.signup-form form a {
+		color: #19aa8d;
+		text-decoration: none;
+	}	
+	.signup-form form a:hover {
+		text-decoration: underline;
+	}
+	.signup-form .fa {
+		font-size: 21px;
+	}
+	.signup-form .fa-paper-plane {
+		font-size: 18px;
+	}
+	.signup-form .fa-check {
+		color: #fff;
+		left: 17px;
+		top: 18px;
+		font-size: 7px;
+		position: absolute;
+	}
+	/* Password styling */
+	 #progressBar {
+      height: 20px;
+      width: 100%;
+      margin-top: 0.6em;
+      border-radius:50px;
+      border:2px solid #ddd
+    }
+
+    #progress-bar {
+      width: 0%;
+      height: 100%;
+      transition: width 500ms linear;
+      border-radius:50px;
+      box-shadow:0px 1px 5px #555
+    }
+
+    .progress-bar-danger {
+      background: #d00;
+    }
+
+    .progress-bar-warning {
+      background: #f50;
+    }
+
+    .progress-bar-success {
+      background: #080;
+    }
+
+		/* password styling */
+</style>
+
+<div class="signup-form">
+    <form action="login.html" onsubmit=" return validate()">
+		<h2>Sign Up</h2>
+		<p>Please fill in this form to create an account!</p>
+		<hr>
+        <div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				<input type="text" class="form-control" name="username" placeholder="Username" required="required " id="fname">
+			</div>
+        </div>
+        <div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+				<input type="email" class="form-control" name="email" placeholder="Email Address" required="required" id="email">
+			</div>
+        </div>
+        <label for="error" id="error"></label>
+        <div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-phone"></i></span>
+				<input type="text" class="form-control" name="Phone Number" placeholder="Phone Number" required="required" id="phone">
+			</div>
+        </div>
+        <label for="error" id="errorp"></label>
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+				<input type="password" class="form-control" name="password" placeholder="Password" required="required" id="pwd1" onkeyup="validatePassword(this.value);"/><span id="msg"></span>
+			
+			</div>
+        </div>
+<br>
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-lock"></i>
+					<i class="fa fa-check"></i>
+				</span>
+				<input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required" id="pwd2">
+				<br>
+				<br>
+				<label for="error" id="errorpas"></label> 
+			</div>
+        </div>
+		
+		
+        <div class="form-group">
+			<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+		</div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg" >Sign Up </button>
+        </div>
+    </form>
+	<div class="text-center">Already have an account? <a href="login.html">Login here</a></div>
+	<br>
+    
+  
+</div>
+
+<script src="form.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- footer -->
+<footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color:black;">
+        All rights reserved © Kerala Tourism 2022:
+      <a class="text-dark" href="#">Copyright</a>
+      <a class="text-dark" href="#" style="margin-left: 10px;">    Contact Us</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>
+</html>
